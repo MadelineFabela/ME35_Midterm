@@ -1,6 +1,9 @@
 from Adafruit_IO import RequestError, Client, Feed
 
-aio = Client('MadFab','Insert_Key')
+#Using REST API to connect to feed on Adafruit.io. 
+#Input USERNAME and KEY
+
+aio = Client('USERNAME','KEY')
 
 import time
 import math 
