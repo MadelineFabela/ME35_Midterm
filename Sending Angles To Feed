@@ -8,6 +8,7 @@ aio = Client('USERNAME','KEY')
 import time
 import math 
 
+# position() function which takes in varying x,y position points and outputs corresponding angles. At times the angles can be greater than 360, which is why extra manipulation was needed.
 def position(x,y):
     L1 = 7
     L2 = 13
