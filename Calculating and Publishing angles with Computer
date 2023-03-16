@@ -2,6 +2,7 @@ import paho.mqtt.client as mqtt
 import time
 import math 
 
+# position() function which takes in varying x,y position points and outputs corresponding angles. At times the angles can be greater than 360, which is why extra manipulation was needed.
 def position(x,y):
     L1 = 7
     L2 = 13
@@ -41,17 +42,19 @@ def position(x,y):
     print("    ")
     
    
+#Connecting to MQTT Client. Replace USERNAME and IP ADDRESS with appropriate values
 
-MQTTPost = mqtt.Client ('madfab')
+MQTTPost = mqtt.Client ('USERNAME')
 
 MQTTPost.connect('IP ADRESS')
 
+#Running through all positions to display angles needed on REPL
 position(1,6),position(2,7),position(3,8)
 position(4,9),position(5,8),position(6,7)
 position(7,7.5),position(8,9),position(9,8)
 position(10,6),position(11,4),position(12,0)
 
-
+#Publishing all angles
 MQTTPost.publish('angle-1',357)
 time.sleep(4)
 MQTTPost.publish('angle-2',174)
