@@ -53,7 +53,7 @@ position(4,9),position(5,8),position(6,7)
 position(7,7.5),position(8,9),position(9,8)
 position(10,6),position(11,4),position(12,0)
 
-
+#Publishing all angles
 aio.send('angle-1',357)
 time.sleep(4)
 aio.send('angle-2',174)
