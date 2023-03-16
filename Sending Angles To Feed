@@ -47,6 +47,7 @@ def position(x,y):
     print(Ang2)
     print("    ")
 
+#Running through all positions to display angles needed on REPL
 position(1,6),position(2,7),position(3,8)
 position(4,9),position(5,8),position(6,7)
 position(7,7.5),position(8,9),position(9,8)
