@@ -1,0 +1,115 @@
+import paho.mqtt.client as mqtt
+import time
+import math 
+
+def position(x,y):
+    L1 = 7
+    L2 = 13
+    L3 = math.sqrt((x**2)+(y**2))
+    B1 = (L2**2 - L1**2 -L3**2)/(-2*L1*L3)
+    A1 = math.acos(B1)
+    Th1 = (y/x)- math.tan(A1)
+    Ang1 = Th1 * (180/math.pi)
+    if 720 > Ang1 > 360:
+        Ang1 = Ang1 - 360
+    elif 720 > abs(Ang1) > 360:
+        Ang1 = Ang1 + 360
+    elif Ang1 > 720:
+        Ang1 = Ang1 - 720
+    elif abs(Ang1) > 720:
+        Ang1 = Ang1 + 720
+    else:
+        Ang1 = Ang1
+    B2 = (L3**2 - L2**2 - L1**2)/(-2*L1*L2)
+    A2 = math.acos(B2)
+    Th2 = math.pi - A2
+    Ang2 = Th2 * (180/math.pi)
+    if 720 > Ang2 > 360:
+        Ang2 = Ang2 - 360
+    elif 720 > abs(Ang2) > 360:
+        Ang2 = Ang2 + 360
+    elif Ang2 > 720:
+        Ang2 = Ang2 - 720
+    elif abs(Ang2) > 720:
+        Ang2 = Ang2 + 720
+    else:
+        Ang2 = Ang2
+    print ("Ang1")
+    print(Ang1)
+    print ("Ang2")
+    print(Ang2)
+    print("    ")
+    
+   
+
+MQTTPost = mqtt.Client ('madfab')
+
+MQTTPost.connect('IP ADRESS')
+
+position(1,6),position(2,7),position(3,8)
+position(4,9),position(5,8),position(6,7)
+position(7,7.5),position(8,9),position(9,8)
+position(10,6),position(11,4),position(12,0)
+
+
+MQTTPost.publish('angle-1',357)
+time.sleep(4)
+MQTTPost.publish('angle-2',174)
+time.sleep(4)
+
+MQTTPost.publish('angle-1',266)
+time.sleep(4)
+MQTTPost.publish('angle-2',155)
+time.sleep(4)
+
+MQTTPost.publish('angle-1',287)
+time.sleep(4)
+MQTTPost.publish('angle-2',143)
+time.sleep(4)
+
+MQTTPost.publish('angle-1',108)
+time.sleep(4)
+MQTTPost.publish('angle-2',132)
+time.sleep(4)
+
+MQTTPost.publish('angle-1',329)
+time.sleep(4)
+MQTTPost.publish('angle-2',135)
+time.sleep(4)
+
+MQTTPost.publish('angle-1',270)
+time.sleep(4)
+MQTTPost.publish('angle-2',136)
+time.sleep(4)
+
+MQTTPost.publish('angle-1',256)
+time.sleep(4)
+MQTTPost.publish('angle-2',128)
+time.sleep(4)
+
+MQTTPost.publish('angle-1',-318)
+time.sleep(4)
+MQTTPost.publish('angle-2',114)
+time.sleep(4)
+
+MQTTPost.publish('angle-1',-331)
+time.sleep(4)
+MQTTPost.publish('angle-2',114)
+time.sleep(4)
+
+aio.send('angle-1',-187)
+MQTTPost.publish(4)
+MQTTPost.publish('angle-2',117)
+time.sleep(4)
+
+MQTTPost.publish('angle-1',-168)
+time.sleep(4)
+MQTTPost.publish('angle-2',116)
+time.sleep(4)
+
+MQTTPost.publish('angle-1',-137)
+time.sleep(4)
+MQTTPost.publish('angle-2',114)
+time.sleep(4)
+
+MQTTPost.disconnect
